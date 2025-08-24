@@ -1,0 +1,14 @@
+body{
+    background-image: url("totoro.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.choices{
+    display: flex;
+    justify-content: end;
+}
+.main-frame{
+    height: 100vh;
+    width: 100vw;
+}
