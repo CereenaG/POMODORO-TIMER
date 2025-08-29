@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+   
     <title>POMODORO TIMER</title>
 </head>
 <body>
     <div class="main-frame">
         <div class="fixed-frame">
-            <div class="choices">
+            <div class="nav-bar">
                 <div class="edit-timer">
                     <button id="edit-timer">EDIT TIMER
                     </button>
@@ -23,15 +24,17 @@
                 </div>
             </div>
             <div class="option-buttons">
-                <button class="pomodorp">POMODORO</button>
+                <button class="pomodoro">POMODORO</button>
                 <button class="short-break">SHORT BREAK</button>
                 <button class="long-break">LONG BREAK</button>
                 <button class="loop">LOOP</button>
             </div>
             <div class="display-timer">
+                <p id="display-timer">25:00</p>
                 <button class="start-btn">START</button>
-            </div>
+            </div> 
         </div>
     </div>
+     <script src="script.js" defer></script>
 </body>
 </html>
