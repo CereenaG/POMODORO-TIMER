@@ -5,7 +5,7 @@ const loop=document.querySelector('.loop');
 const display=document.getElementById('display-timer');
 const start=document.querySelector('.start-btn')
 let time
-let defaultimer
+let defaultimer="25:00"
 pomodoro.addEventListener("click",()=>{
     display.textContent="25:00";
     defaultimer="25:00"
@@ -26,6 +26,8 @@ let x;
 const restart=document.createElement("button")
 const stopb=document.createElement("button");
 
+    let min,sec;
+
 const resume=document.createElement("button");
 stopb.id="stop-btn"
 restart.id="restart-btn"
@@ -33,22 +35,27 @@ stopb.textContent="PAUSE"
 restart.textContent="RESTART"
 resume.textContent="RESUME"
 resume.id="resume-btn"
+function startTimer(){
+    clearInterval(x)
+    x=setInterval(()=>{
+time--
+     min=Math.floor(time/60);
+     sec=time%60
+    display.textContent=String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
+    if(time<=0){
+        clearInterval(x);
+        display.textContent="00:00"
+}},1000);
 
+
+}
 start.addEventListener("click",()=>{
     start.remove();
     document.body.appendChild(stopb)
     document.body.appendChild(restart)
     let content=display.textContent.split(":")
     time=parseInt(content[0])*60+parseInt(content[1])
-    x=setInterval(function startTimer(){
-    time--
-    let min=Math.floor(time/60);
-    let sec=time%60
-    display.textContent=String(min).padStart(2,"0")+":"+String(sec).padStart(2,"0");
-    if(time<=0){
-        clearInterval(x);
-        display.textContent="00:00"
-}},1000);
+    startTimer();
 })
     
     restart.addEventListener("click",()=>{
@@ -60,8 +67,11 @@ start.addEventListener("click",()=>{
     })
     stopb.addEventListener("click", () => {
     clearInterval(x);
+    stopb.replaceWith(resume)
+   
 });
-
-// Resume
-resume.addEventListener("click", () => {
-});
+resume.addEventListener("click",()=>{
+    clearInterval(x);
+startTimer()   
+    resume.replaceWith(stopb)
+})
