@@ -1,27 +1,37 @@
 const pomodoro=document.querySelector('.pomodoro');
 const shortBreak=document.querySelector('.short-break');
 const longBreak=document.querySelector('.long-break');
-const loop=document.querySelector('.loop');
+// const loop=document.querySelector('.loop');
 const display=document.getElementById('display-timer');
 const start=document.querySelector('.start-btn')
 let time
 let defaultimer="25:00"
 pomodoro.addEventListener("click",()=>{
+    clearInterval(x)
+    stopb.replaceWith(start)
+    restart.remove();
+
     display.textContent="25:00";
     defaultimer="25:00"
 })
 shortBreak.addEventListener("click",()=>{
+    clearInterval(x)
+      stopb.replaceWith(start)
+    restart.remove();
     display.textContent="5:00";
     defaultimer="5:00"
 })
 longBreak.addEventListener("click",()=>{
+    clearInterval(x)
+      stopb.replaceWith(start)
+    restart.remove();
     display.textContent="15:00";
     defaultimer="15:00"
 })
-loop.addEventListener("click",()=>{
-    display.textContent="25:00";
-    defaultimer="25:00"
-})
+// loop.addEventListener("click",()=>{
+//     display.textContent="25:00";
+//     defaultimer="25:00"
+// })
 let x;
 const restart=document.createElement("button")
 const stopb=document.createElement("button");
