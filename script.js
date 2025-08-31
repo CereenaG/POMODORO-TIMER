@@ -40,8 +40,6 @@ start.addEventListener("click",()=>{
     document.body.appendChild(restart)
     let content=display.textContent.split(":")
     time=parseInt(content[0])*60+parseInt(content[1])
-stopb.style.display = "inline-block";
-    resume.style.display = "none";
     x=setInterval(function startTimer(){
     time--
     let min=Math.floor(time/60);
@@ -62,13 +60,8 @@ stopb.style.display = "inline-block";
     })
     stopb.addEventListener("click", () => {
     clearInterval(x);
-    stopb.style.display = "none";   // hide stop
-    resume.style.display = "inline-block"; // show resume
 });
 
 // Resume
 resume.addEventListener("click", () => {
-    startTimer();
-    resume.style.display = "none";  // hide resume
-    stopb.style.display = "inline-block"; // show stop
 });
