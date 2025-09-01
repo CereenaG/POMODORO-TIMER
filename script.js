@@ -5,8 +5,8 @@ const longBreak=document.querySelector('.long-break');
 const display=document.getElementById('display-timer');
 const start=document.querySelector('.start-btn')
 const theme=document.getElementById("change-theme");
-const theme_1=document.querySelector("spirited-away")
-const theme_2=document.querySelector("the-neighbour")
+const theme_1=document.querySelector(".spirited-away")
+const theme_2=document.querySelector(".the-neighbour")
 let time
 let defaultimer="25:00"
 pomodoro.addEventListener("click",()=>{
@@ -88,8 +88,11 @@ resume.addEventListener("click",()=>{
     startTimer()   
     resume.replaceWith(stopb)})
 theme_1.addEventListener("click",()=>{
-this.classList.toggle("spirited-away")
+    document.body.classList.remove("the-neighbour")
+    document.body.classList.add("spirited-away")
 })
+
 theme_2.addEventListener("click",()=>{
-this.classList.toggle("the-neighbour")
+    document.body.classList.remove("spirited-away")
+    document.body.classList.add("the-neighbour")
 })
