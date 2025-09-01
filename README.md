@@ -1,2 +1,2 @@
 # POMODORO-TIMER
-Basic Pomodoro timer with theme switching between Ghibli scenes🌸
+`Basic Pomodoro timer with theme switching between Ghibli scenes🌸`
