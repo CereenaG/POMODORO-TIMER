@@ -48,6 +48,7 @@ stopb.textContent="PAUSE"
 restart.textContent="RESTART"
 resume.textContent="RESUME"
 resume.id="resume-btn"
+const display_timer=document.getElementById("action-buttons")
 function startTimer(){
     clearInterval(x)
     x=setInterval(()=>{
@@ -64,8 +65,8 @@ function startTimer(){
 }
 start.addEventListener("click",()=>{
     start.remove();
-    document.body.appendChild(stopb)
-    document.body.appendChild(restart)
+    display_timer.appendChild(stopb)
+   display_timer.appendChild(restart)
     let content=display.textContent.split(":")
     time=parseInt(content[0])*60+parseInt(content[1])
     startTimer();
@@ -74,10 +75,15 @@ start.addEventListener("click",()=>{
 restart.addEventListener("click",()=>{
     clearInterval(x)
     display.innerHTML=defaultimer
-    start.click()
+   let content = defaultimer.split(":");
+    time = parseInt(content[0]) * 60 + parseInt(content[1]);
 
+    startTimer();
 
-})
+    if (display_timer.contains(resume)) {
+        resume.replaceWith(stopb);
+ }
+});
 stopb.addEventListener("click", () => {
     clearInterval(x);
     stopb.replaceWith(resume)
